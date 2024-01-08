@@ -1,5 +1,7 @@
-package de.neuefische.cgnjava234webclient;
+package de.neuefische.cgnjava234webclient.characters.controllers;
 
+import de.neuefische.cgnjava234webclient.characters.models.Character;
+import de.neuefische.cgnjava234webclient.characters.services.CharacterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,5 +1,8 @@
 package de.neuefische.cgnjava234webclient;
 
+import de.neuefische.cgnjava234webclient.characters.models.Character;
+import de.neuefische.cgnjava234webclient.characters.repositorys.CharacterRepository;
+import de.neuefische.cgnjava234webclient.characters.services.CharacterService;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,7 +14,7 @@ import static org.mockito.Mockito.when;
 class CharacterServiceTest {
 
     private CharacterRepository characterRepository = mock(CharacterRepository.class);
-    private CharacterService characterService = new CharacterService(characterRepository);
+    private CharacterService characterService = new CharacterService(characterRepository, null);
 
     @Test
     void getAllCharacters() {

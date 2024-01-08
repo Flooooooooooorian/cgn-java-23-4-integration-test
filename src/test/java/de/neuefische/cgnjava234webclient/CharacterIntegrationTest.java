@@ -1,5 +1,7 @@
 package de.neuefische.cgnjava234webclient;
 
+import de.neuefische.cgnjava234webclient.characters.models.Character;
+import de.neuefische.cgnjava234webclient.characters.repositorys.CharacterRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
