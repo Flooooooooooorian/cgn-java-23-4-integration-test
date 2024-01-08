@@ -5,8 +5,6 @@ import de.neuefische.cgnjava234webclient.characters.models.api.RickAndMortyRespo
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -18,11 +16,11 @@ public class RickAndMortyAPIService {
 
 
     public List<Character> loadAllCharacters() {
-        Character[] responseBody = restClient.get()
+        RickAndMortyResponse responseBody = restClient.get()
                 .uri("/character")
                 .retrieve()
-                .body(Character[].class);
+                .body(RickAndMortyResponse.class);
 
-         return Arrays.asList(responseBody);
+        return responseBody.results();
     }
 }
