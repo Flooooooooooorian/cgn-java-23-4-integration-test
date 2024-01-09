@@ -20,6 +20,11 @@ public class CharacterController {
         return characterService.getAllCharacters();
     }
 
+    @GetMapping("{id}")
+    public Character getCharacterById(@PathVariable String id) {
+        return characterService.getCharacterById(id);
+    }
+
     @PostMapping
     public Character postCharacter(@RequestBody Character character) {
         return characterService.addCharacter(character);
