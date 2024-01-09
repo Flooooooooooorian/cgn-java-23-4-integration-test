@@ -2,6 +2,7 @@ package de.neuefische.cgnjava234webclient.characters.services.api;
 
 import de.neuefische.cgnjava234webclient.characters.models.Character;
 import de.neuefische.cgnjava234webclient.characters.models.api.RickAndMortyResponse;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -10,9 +11,13 @@ import java.util.List;
 @Service
 public class RickAndMortyAPIService {
 
-    private RestClient restClient = RestClient.builder()
-            .baseUrl("https://rickandmortyapi.com/api")
-            .build();
+    private RestClient restClient;
+
+    public RickAndMortyAPIService(@Value("${app.rickandmorty.api.url}") String url) {
+        restClient = RestClient.builder()
+                .baseUrl(url)
+                .build();
+    }
 
 
     public List<Character> loadAllCharacters() {
