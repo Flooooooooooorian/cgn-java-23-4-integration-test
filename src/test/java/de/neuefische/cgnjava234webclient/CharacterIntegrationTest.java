@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
@@ -98,7 +99,7 @@ class CharacterIntegrationTest {
                         """));
 
         //WHEN
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/api/characters"))
+        MvcResult mvcResult = mockMvc.perform(get("/api/characters"))
 
                 //THEN
                 .andExpect(status().isOk())
@@ -141,5 +142,14 @@ class CharacterIntegrationTest {
 
 
         assertEquals(mvcResult.getResponse().getStatus(), 200);
+    }
+
+    @Test
+    public void getCharacterById() throws Exception {
+        mockWebServer.enqueue(new MockResponse()
+                .setResponseCode(404));
+
+        mockMvc.perform(get("/api/characters/0"))
+                .andExpect(status().isNotFound());
     }
 }
